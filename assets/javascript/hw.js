@@ -42,8 +42,8 @@ $( document ).ready(function() {
 			for (var i = 0; i < results.length; i++) {
 				if (results[i].rating !== 'r') {
 					var gifDiv = $('<div class="item">');
-					var rating = results[i].rating;
-					var p = $('<p>').text('Rating: ' + rating);
+					var rating = results[i].rating.toUpperCase();
+					var p = $('<p>').html('<strong>Rating: ' + rating+'</strong>');
 					var topicImage = $('<img>');
 					topicImage.attr('src', results[i].images.fixed_height_still.url);
 					topicImage.attr('data-state', 'still');
