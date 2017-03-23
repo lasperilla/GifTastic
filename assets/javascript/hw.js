@@ -3,8 +3,9 @@ $( document ).ready(function() {
 	var topics = ['All That', 'Kenan & Kel', 'Are You Afraid of the Dark?', 'Salute Your Shorts', 'Hey Dude', 'Legends of the Hidden Temple']
 
 	function makeButtonsFunc() {
+		$('.gifButtons').empty();
 		for (var i = 0; i < topics.length; i++) {
-			var newButton = $('<button>')
+			var newButton = $('<button>');
 			newButton.addClass('categoryButton');
 			newButton.attr('data-topic', topics[i]);
 			newButton.text(topics[i]);
@@ -14,7 +15,14 @@ $( document ).ready(function() {
 
 	makeButtonsFunc();
 
-	$('.categoryButton').on('click', function() {
+	$("#add-category").on('click', function(event) {
+		event.preventDefault();
+		var newTopic = $('#category-input').val().trim();
+        topics.push(newTopic);
+		makeButtonsFunc();
+	});
+
+	$('.gifButtons').on('click', 'button.categoryButton', function() {
 		var searchTerm = $(this).attr('data-topic');
 		var apiKey = 'dc6zaTOxFJmzC';
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key="+apiKey+"&limit=10";
@@ -38,7 +46,7 @@ $( document ).ready(function() {
 						gifDiv.append(topicImage);
 
 						$('#categories').prepend(gifDiv);
-						console.log(queryURL);
+						// console.log(queryURL);
 					}
 				}
 			});
