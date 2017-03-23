@@ -31,25 +31,40 @@ $( document ).ready(function() {
 			url: queryURL,
 			method: "GET"
 			})
-			.done(function(response) {
-				var results = response.data;
-				$('#categories').empty();
+		.done(function(response) {
+			var results = response.data;
+			console.log(response);
+			$('#categories').empty();
 
-				for (var i = 0; i < results.length; i++) {
-					if (results[i].rating !== "r") {
-						var gifDiv = $("<div class='item'>");
-						var rating = results[i].rating;
-						var p = $("<p>").text("Rating: " + rating);
-						var topicImage = $("<img>");
-						topicImage.attr("src", results[i].images.fixed_height.url);
-						gifDiv.append(p);
-						gifDiv.append(topicImage);
+			for (var i = 0; i < results.length; i++) {
+				if (results[i].rating !== "r") {
+					var gifDiv = $("<div class='item'>");
+					var rating = results[i].rating;
+					var p = $("<p>").text("Rating: " + rating);
+					var topicImage = $("<img>");
+					topicImage.attr("src", results[i].images.fixed_height_still.url);
+					topicImage.attr("data-state", 'still');
+					topicImage.attr("data-still", results[i].images.fixed_height_still.url);
+					topicImage.attr("data-animate", results[i].images.fixed_height.url);
+					gifDiv.append(p);
+					gifDiv.prepend(topicImage);
 
-						$('#categories').prepend(gifDiv);
-						// console.log(queryURL);
-					}
+					$('#categories').prepend(gifDiv);
+					// console.log(queryURL);
 				}
-			});
+			}
+		});
 	}); //end of categoryButton on click
+
+	$('#categories').on('click','img', function() {
+		var state = $(this).attr('data-state');
+		if (state === 'still') {
+			$(this).attr('src', $(this).attr('data-animate'));
+			$(this).attr('data-state', 'animate');
+		} else {
+			$(this).attr('src', $(this).attr('data-still'));
+			$(this).attr('data-state', 'still');
+		}
+	});//end of gif on click
 
 }); //end document.ready
