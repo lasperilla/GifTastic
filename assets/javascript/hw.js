@@ -17,7 +17,10 @@ $( document ).ready(function() {
 
 	$('#add-category').on('click', function(event) {
 		event.preventDefault();
-		var newTopic = $('#category-input').val().trim();
+		function toTitleCase(str){
+    		return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+		};
+		var newTopic = toTitleCase($('#category-input').val().trim());
 		if (newTopic !== "") {
 			topics.push(newTopic);
 			makeButtonsFunc();
