@@ -39,7 +39,6 @@ $( document ).ready(function() {
 			})
 		.done(function(response) {
 			var results = response.data;
-			console.log(response);
 			$('#categories').empty();
 
 			for (var i = 0; i < results.length; i++) {
@@ -56,7 +55,6 @@ $( document ).ready(function() {
 					gifDiv.prepend(topicImage);
 
 					$('#categories').prepend(gifDiv);
-					// console.log(queryURL);
 				}
 			}
 		});
