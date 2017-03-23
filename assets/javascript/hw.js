@@ -7,7 +7,9 @@ $( document ).ready(function() {
 		for (var i = 0; i < topics.length; i++) {
 			var newButton = $('<button>');
 			newButton.addClass('btn btn-info categoryButton');
-			newButton.attr('data-topic', topics[i]);
+			//format data-topic to be grabbed later for ajax query url
+			var dataTopic = topics[i].toLowerCase().split(' ').join('+');
+			newButton.attr('data-topic', dataTopic);
 			newButton.text(topics[i]);
 			$('.gifButtons').append(newButton);
 		}
@@ -32,7 +34,6 @@ $( document ).ready(function() {
 		var searchTerm = $(this).attr('data-topic');
 		var apiKey = 'dc6zaTOxFJmzC';
 		var queryURL ='https://api.giphy.com/v1/gifs/search?q=' + searchTerm + '&api_key='+apiKey+'&limit=10';
-		console.log('uri '+queryURL)
 
 		$.ajax({
 			url: queryURL,
