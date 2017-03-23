@@ -14,6 +14,10 @@ footer {
     padding: 30px;
 }
 
+#buttons-go-here {
+	padding-left: 0;
+}
+
 .gifButtons button {
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -26,4 +30,8 @@ footer {
 .item {
 	float: left;
 	margin-right: 10px;
+}
+
+#categories {
+	margin-top: 10px;
 }

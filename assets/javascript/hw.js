@@ -22,6 +22,7 @@ $( document ).ready(function() {
 			topics.push(newTopic);
 			makeButtonsFunc();
 		}
+		$('#category-input').val('');
 	});
 
 	$('.gifButtons').on('click', 'button.categoryButton', function() {
