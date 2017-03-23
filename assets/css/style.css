@@ -1,0 +1,29 @@
+body {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+footer {
+    height: 5%;
+    color: #9D9D95;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-contents {
+    padding: 30px;
+}
+
+.gifButtons button {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+#add-category {
+	margin-top: 10px;
+}
+
+.item {
+	float: left;
+	margin-right: 10px;
+}

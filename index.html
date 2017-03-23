@@ -13,21 +13,44 @@
 	<title>GifTastic</title>
 </head>
 <body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">GifTastic!</a>
+            </div>
+        </div>
+    </nav>
 
-	<div class="gifButtons">
-		
+
+	<div class="container main-contents">
+		<div class="row">
+			<div class="gifButtons col-xs-9">
+				
+			</div>
+			
+			<div class="col-xs-3">
+				<form id="categoryForm">
+					<label for="category-input">Add a Category</label><br>
+					<input type="text" id="category-input"><br>
+					<input id="add-category" type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="categories">
+
+			</div>
+		</div>
 	</div>
 
-	<form id="categoryForm">
-		<label for="category-input">Add a Category</label><br>
-		<input type="text" id="category-input"><br>
-
-		<input id="add-category" type="submit" value="Submit">
-	</form>
-
-	<div id="categories">
-
-	</div>
+    <footer class="footer-bottom col-xs-12 navbar-inverse navbar-fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <p>© Copyright 2017 Lawrence Asperilla</p>
+            </div>
+        </div>
+    </footer>
 	<script type="text/javascript" src="assets/javascript/hw.js"></script>
 </body>
 </html>

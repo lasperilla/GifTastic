@@ -6,7 +6,7 @@ $( document ).ready(function() {
 		$('.gifButtons').empty();
 		for (var i = 0; i < topics.length; i++) {
 			var newButton = $('<button>');
-			newButton.addClass('categoryButton');
+			newButton.addClass('btn btn-info categoryButton');
 			newButton.attr('data-topic', topics[i]);
 			newButton.text(topics[i]);
 			$('.gifButtons').append(newButton);
@@ -15,7 +15,7 @@ $( document ).ready(function() {
 
 	makeButtonsFunc();
 
-	$("#add-category").on('click', function(event) {
+	$('#add-category').on('click', function(event) {
 		event.preventDefault();
 		var newTopic = $('#category-input').val().trim();
         topics.push(newTopic);
@@ -25,11 +25,11 @@ $( document ).ready(function() {
 	$('.gifButtons').on('click', 'button.categoryButton', function() {
 		var searchTerm = $(this).attr('data-topic');
 		var apiKey = 'dc6zaTOxFJmzC';
-		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key="+apiKey+"&limit=10";
+		var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + searchTerm + '&api_key='+apiKey+'&limit=10';
 
 		$.ajax({
 			url: queryURL,
-			method: "GET"
+			method: 'GET'
 			})
 		.done(function(response) {
 			var results = response.data;
@@ -37,15 +37,15 @@ $( document ).ready(function() {
 			$('#categories').empty();
 
 			for (var i = 0; i < results.length; i++) {
-				if (results[i].rating !== "r") {
-					var gifDiv = $("<div class='item'>");
+				if (results[i].rating !== 'r') {
+					var gifDiv = $('<div class="item">');
 					var rating = results[i].rating;
-					var p = $("<p>").text("Rating: " + rating);
-					var topicImage = $("<img>");
-					topicImage.attr("src", results[i].images.fixed_height_still.url);
-					topicImage.attr("data-state", 'still');
-					topicImage.attr("data-still", results[i].images.fixed_height_still.url);
-					topicImage.attr("data-animate", results[i].images.fixed_height.url);
+					var p = $('<p>').text('Rating: ' + rating);
+					var topicImage = $('<img>');
+					topicImage.attr('src', results[i].images.fixed_height_still.url);
+					topicImage.attr('data-state', 'still');
+					topicImage.attr('data-still', results[i].images.fixed_height_still.url);
+					topicImage.attr('data-animate', results[i].images.fixed_height.url);
 					gifDiv.append(p);
 					gifDiv.prepend(topicImage);
 
