@@ -18,8 +18,10 @@ $( document ).ready(function() {
 	$('#add-category').on('click', function(event) {
 		event.preventDefault();
 		var newTopic = $('#category-input').val().trim();
-        topics.push(newTopic);
-		makeButtonsFunc();
+		if (newTopic !== "") {
+			topics.push(newTopic);
+			makeButtonsFunc();
+		}
 	});
 
 	$('.gifButtons').on('click', 'button.categoryButton', function() {
