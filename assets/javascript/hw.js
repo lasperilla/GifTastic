@@ -31,7 +31,7 @@ $( document ).ready(function() {
 	$('.gifButtons').on('click', 'button.categoryButton', function() {
 		var searchTerm = $(this).attr('data-topic');
 		var apiKey = 'dc6zaTOxFJmzC';
-		var queryURL = encodeURIComponent('https://api.giphy.com/v1/gifs/search?q=' + searchTerm + '&api_key='+apiKey+'&limit=10');
+		var queryURL ='https://api.giphy.com/v1/gifs/search?q=' + searchTerm + '&api_key='+apiKey+'&limit=10';
 		console.log('uri '+queryURL)
 
 		$.ajax({
