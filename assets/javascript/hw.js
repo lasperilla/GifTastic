@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-	var topics = ['All That', 'Kenan & Kel', 'Are You Afraid of the Dark?', 'Salute Your Shorts', 'Hey Dude', 'Legends of the Hidden Temple']
+	var topics = ['Kamen Rider Black RX', 'Kamen Rider Den-O', 'Kamen Rider W', 'Kamen Rider OOO', 'Kamen Rider Wizard']
 
 	function makeButtonsFunc() {
 		$('.gifButtons').empty();
